@@ -2,6 +2,10 @@
 
 PybricksHub.js is a driver to connect the hub by LEGO with the [Pybricks](https://pybricks.com/) firmware. (forked from [pybricks-code](https://github.com/pybricks/pybricks-code))
 
+## Demo
+
+- [PybricksHub test](https://code4fukui.github.io/PybricksHub.js/)
+
 ## Usage
 
 ```JavaScript
