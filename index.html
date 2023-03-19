@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>PybricksHub test</title>
+</head><body>
+
+<h1>PybricksHub test</h1>
+<button id=btnconnect>connect</button>
+<button id=btndisconnect>disconnect</button>
+<button id=btnrepl>REPL</button>
+<br>
+<textarea id=taout></textarea><br>
+<input id=inp><button id=btnsend>send</button><button id=btnclear>clear</button><br>
+<textarea id=taprog>from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+
+hub = PrimeHub()
+#hub.light.on(Color.RED)
+hub.display.off()
+hub.display.pixel(1, 1, 100)
+wait(1000)
+hub.display.pixel(1, 2, 100)
+wait(1000)</textarea><br>
+<button id=btnset>set program</button>
+<button id=btnstart>start program</button>
+<button id=btnstop>stop program</button>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 1em;
+}
+textarea {
+  width: 100%;
+  height: 10em;
+  margin: .5em 0;
+  padding: .2em;
+}
+</style>
+
+<script type="module">
+import { PybricsHub } from "./PybricsHub.js";
+
+const hub = new PybricsHub();
+hub.setReceiver(s => {
+  taout.value += s;
+  taout.scrollTop = taout.scrollHeight;
+});
+btnconnect.onclick = async () => {
+  await hub.connect();
+  await hub.startREPL();
+};
+btndisconnect.onclick = async () => {
+  await hub.disconnect();
+};
+btnsend.onclick = async () => {
+  const s = inp.value;
+  await hub.send(s + "\r\n");
+  inp.value = "";
+};
+btnclear.onclick = async () => {
+  taout.value = "";
+};
+btnrepl.onclick = async () => {
+  await hub.stopProgram();
+  await hub.startREPL();
+};
+btnstop.onclick = async () => {
+  await hub.stopProgram();
+};
+btnstart.onclick = async () => {
+  await hub.stopProgram();
+  await hub.startProgram();
+};
+btnset.onclick = async () => {
+  await hub.stopProgram();
+  await hub.setProgram(taprog.value);
+};
+</script>
+
+<hr>
+docs: <a href=https://docs.pybricks.com/en/latest/>Pybricks Documentation — pybricks v3.2.0 documentation</a><br>
+<a href="https://github.com/code4fukui/PybricsHub.js/">src on GitHub</a> (forked from <a href=https://github.com/pybricks/pybricks-code>pybricks-code</a> in <a href=https://pybricks.com/>Pybricks</a>)<br>
