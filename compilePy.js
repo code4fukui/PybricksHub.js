@@ -16,7 +16,7 @@ export const compilePy = async (prog) => {
   const wasmurl = "https://code4fukui.github.io/mpy-cross-v6/build/mpy-cross-v6.wasm";
   const bin = await compile(module + ".py", prog, null, wasmurl);
   console.log(bin);
-  if (bin.err) {
+  if (bin.err.length > 0) {
     throw new Error(bin.err);
   }
   const pack = [];

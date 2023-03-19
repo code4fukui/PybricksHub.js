@@ -16,12 +16,12 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 hub = PrimeHub()
-#hub.light.on(Color.RED)
+hub.light.on(Color.RED)
 hub.display.off()
-hub.display.pixel(1, 1, 100)
-wait(1000)
-hub.display.pixel(1, 2, 100)
-wait(1000)</textarea><br>
+for i in range(0, 4):
+  hub.display.pixel(i, i, 100)
+  wait(500)
+</textarea><br>
 <button id=btnset>set program</button>
 <button id=btnstart>start program</button>
 <button id=btnstop>stop program</button>
@@ -42,9 +42,9 @@ textarea {
 </style>
 
 <script type="module">
-import { PybricsHub } from "./PybricsHub.js";
+import { PybricksHub } from "./PybricksHub.js";
 
-const hub = new PybricsHub();
+const hub = new PybricksHub();
 hub.setReceiver(s => {
   taout.value += s;
   taout.scrollTop = taout.scrollHeight;

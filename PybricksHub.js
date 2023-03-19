@@ -1,4 +1,4 @@
-// based on pybrics-code https://github.com/pybricks/pybricks-code
+// based on pybricks-code https://github.com/pybricks/pybricks-code
 
 import { compilePy } from "./compilePy.js";
 
@@ -78,7 +78,7 @@ export function createWriteUserRamCommand(offset, payload) {
   return msg;
 };
 
-export class PybricsHub {
+export class PybricksHub {
   async connect() {
     this.device = await navigator.bluetooth.requestDevice({
       filters: [{ services: [pybricksServiceUUID] }],
