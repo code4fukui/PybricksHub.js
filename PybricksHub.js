@@ -166,18 +166,15 @@ export class PybricksHub {
     const msgmeta1 = createWriteUserProgramMetaCommand(0); // invalidate exists program
     await this.pybricksControlChar.writeValueWithResponse(msgmeta1.buffer);
     const chunkSize = this.maxWriteSize - 5; // 5 is size of header
-    console.log(msgmeta1, chunkSize, bin.length)
     for (let i = 0; i < bin.length; i += chunkSize) {
       const buf = new Uint8Array(Math.min(chunkSize, bin.length - i));
       for (let j = 0; j < buf.length; j++) {
         buf[j] = bin[i + j];
       }
       const msgbody = createWriteUserRamCommand(i, buf.buffer);
-      console.log(msgbody)
       await this.pybricksControlChar.writeValueWithResponse(msgbody.buffer);
     }
     const msgmeta2 = createWriteUserProgramMetaCommand(bin.length);
-    console.log(msgmeta2)
     await this.pybricksControlChar.writeValueWithResponse(msgmeta2.buffer);
   }
   async startREPL() {
