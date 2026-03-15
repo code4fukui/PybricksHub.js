@@ -1,13 +1,23 @@
 # PybricksHub.js
 
-PybricksHub.js is a driver to connect the hub by LEGO with the [Pybricks](https://pybricks.com/) firmware. (forked from [pybricks-code](https://github.com/pybricks/pybricks-code))
+PybricksHub.js は LEGO の Hub を [Pybricks](https://pybricks.com/) ファームウェアと接続するためのドライバーです。(forked from [pybricks-code](https://github.com/pybricks/pybricks-code))
 
-## Demo
+## デモ
 
 - [PybricksHub test](https://code4fukui.github.io/PybricksHub.js/)
 - [PybricksHub test in JS](https://code4fukui.github.io/PybricksHub.js/js.html) (with [JS2Py](https://github.com/code4fukui/js2py/))
 
-## Usage
+## 機能
+
+- LEGO の Hub と Pybricks ファームウェアの接続
+- プログラムのアップロードと実行
+- REPL (対話型プログラミング)
+
+## 必要環境
+
+- Web ブラウザ (WebBluetooth 対応が必要)
+
+## 使い方
 
 ```JavaScript
 import { PybricksHub } from "https://code4fukui.github.io/PybricksHub.js/PybricksHub.js";
@@ -23,10 +33,6 @@ btnconnect.onclick = async () => {
 };
 ```
 
-## Dependencies
-
-- [mpy-cross-v6 ES modules](https://github.com/code4fukui/mpy-cross-v6)
-
-## License
+## ライセンス
 
 MIT License
