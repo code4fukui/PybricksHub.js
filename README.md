@@ -1,5 +1,7 @@
 # PybricksHub.js
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 PybricksHub.js is a driver to connect the hub by LEGO with the [Pybricks](https://pybricks.com/) firmware. (forked from [pybricks-code](https://github.com/pybricks/pybricks-code))
 
 ## Demo

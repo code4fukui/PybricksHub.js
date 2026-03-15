@@ -1,6 +1,6 @@
 # PybricksHub.js
 
-PybricksHub.js は LEGO の Hub を [Pybricks](https://pybricks.com/) ファームウェアと接続するためのドライバーです。(forked from [pybricks-code](https://github.com/pybricks/pybricks-code))
+PybricksHub.js は LEGO の Hub を [Pybricks](https://pybricks.com/) ファームウェアと接続するためのドライバーです。
 
 ## デモ
 
